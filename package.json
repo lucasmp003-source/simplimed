@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "test:coverage": "cd src/backend && npm run test:coverage",
+    "audit": "cd src/backend && npm audit"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "express-rate-limit": "^8.2.1",
+    "helmet": "^8.1.0"
+  }
+}

@@ -1,0 +1,40 @@
+A partir del siguiente texto médico, extrae **absolutamente todos** los términos que pertenezcan a las siguientes categorías. **Si hay alguna duda sobre si un término debe ser incluido, agrégalo en la categoría más probable, pero nunca lo omitas.**
+
+1. **Medicamentos** → Nombres comerciales o genéricos de fármacos (Ej: "Paracetamol", "Ibuprofeno", "Omeprazol").
+2. **Principios activos** → Sustancias químicas responsables de la actividad farmacológica (Ej: "Ácido acetilsalicílico", "Metformina").
+
+📌 **Reglas obligatorias:**
+- **Si una categoría no tiene términos, devuelve una lista vacía (`[]`).**  
+  ⚠️ **No dejes la categoría sin definir ni uses `null` o `None`**, siempre debe ser `[]`.
+- **Incluye todos los términos** que pertenezcan a estas categorías sin omitir ninguno.
+- **Si hay duda**, agrégalo en la categoría más probable.
+- **Mantén los términos exactamente como aparecen en el texto**, sin cambiar mayúsculas ni minúsculas.
+- **Devuelve la respuesta en formato JSON válido**, con dos claves:  
+  `"medicamentos"` y `"principios_activos"`.
+
+---
+
+### **Ejemplo de texto médico:**
+
+El paciente fue tratado con **Paracetamol 500 mg** cada 8 horas para el manejo del dolor. Además, se prescribió **Amoxicilina 875 mg/125 mg** para la infección bacteriana. Se recomendó **Omeprazol 20 mg** antes del desayuno. Para la inflamación, se administró **Diclofenaco 75 mg/3 mL**. El paciente también utiliza **Salbutamol inhalado** para el asma. Se advirtió evitar el uso de **Ácido acetilsalicílico** debido a antecedentes de gastritis.
+
+---
+
+### **Salida JSON esperada:**
+
+```json
+{
+  "medicamentos": ["Paracetamol", "Amoxicilina", "Omeprazol", "Diclofenaco", "Salbutamol"],
+  "principios_activos": ["Paracetamol", "Amoxicilina", "Omeprazol", "Diclofenaco", "Salbutamol", "Ácido acetilsalicílico"]
+}
+```
+
+---
+
+### **Notas adicionales:**
+- Asegúrate de incluir términos que puedan estar escritos en diferentes formatos.
+- Si un término incluye tanto el nombre del medicamento como la dosis (Ej: "Paracetamol 500 mg"), sepáralo en las categorías correspondientes ("Paracetamol" en `"medicamentos"`).
+- Si un término no encaja claramente en ninguna categoría, agrégalo en `"principios_activos"`, si es una sustancia farmacológicamente activa.
+- Asegúrate de que **todas las categorías aparecen en la salida, incluso si están vacías (`[]`)**.
+- No cambies el formato de los nombres de los términos detectados.
+- No incluyas categorías adicionales más allá de `"medicamentos"` y `"principios_activos"`.

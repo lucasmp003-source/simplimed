@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GALENO-IA: Sistema de Informes Cardiológicos</title>
+    <!-- BASE_PLACEHOLDER -->
+    <link rel="stylesheet" href="public/css/global_styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="public/css/chatbot.css?v=3" />
+
+    <link rel="stylesheet" href="public/css/landing.css" />
+    <link rel="stylesheet" href="public/css/footer.css?v=robust" />
+
+
+</head>
+
+<body class="auth-protected">
+
+    <!-- Animated Background -->
+    <div class="background-effects">
+        <div class="gradient-orb"></div>
+        <div class="gradient-orb"></div>
+        <div class="gradient-orb"></div>
+        <div class="grid-pattern"></div>
+    </div>
+
+    <!-- HEADER_PLACEHOLDER -->
+
+    <main class="main-container">
+        <div style="width: 100%; max-width: 1200px;">
+            <div class="hero-section">
+                <!-- Interactive Title with Particles -->
+                <div class="hero-title-wrapper" id="hero-title-wrapper">
+                    <div class="title-particles" id="title-particles"></div>
+                    <h1 class="hero-title">Sistema Inteligente de<br>Informes Cardiológicos</h1>
+                </div>
+
+                <p class="hero-subtitle">Potenciado por inteligencia artificial de última generación</p>
+            </div>
+
+            <div class="options-wrapper">
+                <a href="generar" class="option-card">
+                    <div class="option-icon-circle">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <rect x="9" y="3" width="6" height="4" rx="1" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <line x1="9" y1="12" x2="15" y2="12" stroke-linecap="round" />
+                            <line x1="9" y1="16" x2="13" y2="16" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <div class="option-header">
+                        <h2 class="option-title">Genera tu Informe</h2>
+
+                    </div>
+                    <p class="option-description">
+                        Crea informes de alta cardiológica completos mediante inteligencia artificial avanzada.
+                    </p>
+                    <ul class="feature-list">
+                        <li class="feature-item">
+                            <span class="feature-check">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </span>
+                            Generación automática de informes
+                        </li>
+                        <li class="feature-item">
+                            <span class="feature-check">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </span>
+                            Basado en datos clínicos
+                        </li>
+                        <li class="feature-item">
+                            <span class="feature-check">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </span>
+                            Formato profesional estándar
+                        </li>
+                    </ul>
+                </a>
+
+                <a href="simplificar" class="option-card">
+                    <div class="option-icon-circle">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="5" />
+                            <path d="M12 2v4m0 12v4M2 12h4m12 0h4" stroke-linecap="round" />
+                            <path d="M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"
+                                stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <div class="option-header">
+                        <h2 class="option-title">Simplifica tu Informe</h2>
+
+                    </div>
+                    <p class="option-description">
+                        Convierte informes médicos complejos en versiones fáciles de entender para pacientes.
+                    </p>
+                    <ul class="feature-list">
+                        <li class="feature-item">
+                            <span class="feature-check">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </span>
+                            Lenguaje claro y accesible
+                        </li>
+                        <li class="feature-item">
+                            <span class="feature-check">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </span>
+                            Mantiene información crítica
+                        </li>
+                        <li class="feature-item">
+                            <span class="feature-check">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </span>
+                            Resultados en segundos
+                        </li>
+                    </ul>
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER_PLACEHOLDER -->
+
+    <!-- ONLY Title Sparkle Effect -->
+    <script src="config.js"></script>
+    <script src="public/js/chatbot.js"></script>
+    <script src="public/js/url-helper.js"></script>
+    <script src="public/js/auth.js"></script>
+    <script src="public/js/landing.js"></script>
+</body>
+
+</html>

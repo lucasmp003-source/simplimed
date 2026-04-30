@@ -1,0 +1,559 @@
+/* ============================================
+   DASHBOARD / ADMIN STYLES
+   ============================================ */
+
+:root {
+    --admin-primary: #c0392b;
+    /* Deep Red */
+    --admin-secondary: #2c3e50;
+    /* Dark Blue/Gray */
+    --admin-accent: #e74c3c;
+    /* Bright Red */
+    --admin-gold: #f1c40f;
+    /* Gold for Admin status */
+    --admin-bg: #f8f9fa;
+}
+
+body {
+    background-color: #f4f7f6;
+    /* Soft, professional background */
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+/* Container Enhancement */
+.admin-container {
+    max-width: 1400px;
+    margin: 120px auto 40px;
+    /* Increased top margin for header clearance */
+    padding: 15px 40px 0 40px;
+    animation: fadeIn 0.6s ease-out;
+    width: 100%;
+    flex: 1;
+}
+
+/* Typography - "The Boss" Look */
+.admin-container h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--admin-secondary);
+    text-transform: uppercase;
+    letter-spacing: -0.5px;
+    margin-bottom: 0.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.admin-container h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--admin-primary), var(--admin-accent));
+    border-radius: 2px;
+}
+
+.admin-subtitle {
+    font-size: 1.1rem;
+    color: #7f8c8d;
+    margin-bottom: 3rem;
+    font-weight: 400;
+    max-width: 600px;
+}
+
+/* Controls Section */
+.admin-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.search-box {
+    position: relative;
+    width: 400px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 12px 20px 12px 45px;
+    border: 2px solid #eef2f7;
+    border-radius: 50px;
+    /* Pill shape */
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    background-color: #fcfdfe;
+}
+
+.search-box input:focus {
+    border-color: var(--admin-accent);
+    box-shadow: 0 0 0 4px rgba(231, 76, 60, 0.1);
+    outline: none;
+    width: 100%;
+}
+
+.search-box i {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #95a5a6;
+    transition: color 0.3s;
+}
+
+.search-box input:focus+i {
+    color: var(--admin-accent);
+}
+
+.btn-add {
+    background: linear-gradient(135deg, var(--admin-primary), var(--admin-accent));
+    color: white;
+    padding: 12px 28px;
+    border-radius: 50px;
+    border: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-add:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+}
+
+.btn-add:active {
+    transform: translateY(1px);
+}
+
+/* Table Styling - The Centerpiece */
+.users-table-container {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+thead th {
+    background-color: #f8f9fa;
+    color: var(--admin-secondary);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    padding: 18px 25px;
+    text-align: left;
+    border-bottom: 2px solid #eef2f7;
+}
+
+tbody tr {
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+tbody tr:hover {
+    background-color: #fdfdfd;
+    transform: scale(1.001);
+    /* Subtle lift */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    z-index: 10;
+    position: relative;
+}
+
+tbody td {
+    padding: 20px 25px;
+    border-bottom: 1px solid #f1f4f8;
+    color: #555;
+    font-size: 0.95rem;
+    vertical-align: middle;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Role Badges */
+.role-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.role-admin {
+    background-color: rgba(231, 76, 60, 0.1);
+    color: var(--admin-primary);
+    border: 1px solid rgba(231, 76, 60, 0.2);
+}
+
+.role-tester {
+    background-color: rgba(52, 152, 219, 0.1);
+    color: #2980b9;
+    border: 1px solid rgba(52, 152, 219, 0.2);
+}
+
+.role-user {
+    background-color: rgba(149, 165, 166, 0.15);
+    color: #7f8c8d;
+    border: 1px solid rgba(149, 165, 166, 0.2);
+}
+
+/* Action Buttons */
+.action-cell {
+    white-space: nowrap;
+    /* Prevent wrapping */
+}
+
+.action-buttons-wrapper {
+    display: flex;
+    gap: 8px;
+    /* Space between buttons */
+    align-items: center;
+}
+
+.action-btn {
+    width: 35px;
+    height: 35px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+    cursor: pointer;
+    text-decoration: none;
+    /* remove underline from links */
+}
+
+.action-btn.edit {
+    background-color: transparent;
+    color: #34495e;
+}
+
+.action-btn.edit:hover {
+    background-color: #ecf0f1;
+    color: var(--admin-primary);
+    border-color: #bdc3c7;
+}
+
+.action-btn.delete {
+    background-color: transparent;
+    color: #e74c3c;
+}
+
+.action-btn.delete:hover {
+    background-color: rgba(231, 76, 60, 0.1);
+    border-color: rgba(231, 76, 60, 0.3);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Modal Overlay */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    overflow-y: auto;
+    padding: 40px 20px;
+    backdrop-filter: blur(4px);
+}
+
+/* Modal Polish */
+.modal-content {
+    border-radius: 20px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    border: none;
+    max-width: 550px;
+    margin: 0 auto;
+    padding: 30px;
+    overflow: hidden;
+    background: white;
+    position: relative;
+}
+
+.modal-header {
+    background: linear-gradient(135deg, var(--admin-secondary), #34495e);
+    color: white;
+    padding: 24px;
+    border: none;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.close-modal {
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.2s;
+}
+
+.close-modal:hover {
+    color: white;
+}
+
+.modal-body {
+    padding: 30px;
+    background-color: #fff;
+}
+
+.form-group label {
+    color: #2c3e50;
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.form-group input,
+.form-group select {
+    border: 2px solid #eef2f7;
+    border-radius: 8px;
+    padding: 12px;
+    transition: border-color 0.2s;
+    width: 100%;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--admin-primary);
+    outline: none;
+}
+
+.form-actions {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+}
+
+.btn-secondary {
+    background: #f1f2f6;
+    color: #747d8c;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+    background: #dfe4ea;
+    color: #2f3542;
+}
+
+.btn-primary {
+    background: var(--admin-primary);
+    /* Deep Red */
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(192, 57, 43, 0.3);
+    transition: all 0.2s;
+}
+
+.btn-primary:hover {
+    background: #b03a2e;
+    transform: translateY(-1px);
+}
+
+/* ========== CRITICAL FIXES ========== */
+
+/* Fix 1: Search bar container spacing - NO BOX */
+.admin-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0;
+    margin-bottom: 30px;
+    padding: 0;
+    background: transparent;
+}
+
+/* Reduce gap between title and content */
+.account-header {
+    margin-bottom: 0 !important;
+    padding-bottom: 10px !important;
+}
+
+.admin-container {
+    margin-top: 0 !important;
+}
+
+/* Fix 2: Actions column - keep buttons in same cell */
+.actions-cell {
+    display: flex !important;
+    gap: 10px !important;
+    align-items: center !important;
+    white-space: nowrap !important;
+}
+
+/* Fix 3: Icon buttons styling */
+.btn-icon {
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    background: transparent;
+}
+
+.btn-icon.edit {
+    color: #3498db;
+}
+
+.btn-icon.edit:hover {
+    background: rgba(52, 152, 219, 0.15);
+    color: #2980b9;
+}
+
+.btn-icon.delete {
+    color: #e74c3c;
+}
+
+.btn-icon.delete:hover {
+    background: rgba(231, 76, 60, 0.15);
+    color: #c0392b;
+}
+
+/* Fix table overflow issue */
+.table-responsive {
+    overflow-x: auto;
+}
+
+.admin-table {
+    width: 100%;
+    min-width: 800px;
+    table-layout: fixed;
+}
+
+.admin-table th:last-child,
+.admin-table td:last-child {
+    width: 120px;
+    text-align: center;
+}
+
+/* Form Row - Two Column Layout */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+/* Account Header for Admin Page */
+.account-main {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 40px 0;
+}
+
+.account-header {
+    margin-bottom: 20px;
+}
+
+.account-header h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #2c3e50;
+    margin: 0 0 8px 0;
+}
+
+.account-subtitle {
+    font-size: 1.05rem;
+    color: #7f8c8d;
+    margin: 0;
+}
+
+/* Role Badges (JS-rendered) */
+.badge-admin {
+    background-color: rgba(231, 76, 60, 0.1);
+    color: #c0392b;
+    border: 1px solid rgba(231, 76, 60, 0.2);
+}
+
+.badge-tester {
+    background-color: rgba(52, 152, 219, 0.1);
+    color: #2980b9;
+    border: 1px solid rgba(52, 152, 219, 0.2);
+}
+
+.badge-user {
+    background-color: rgba(149, 165, 166, 0.15);
+    color: #7f8c8d;
+    border: 1px solid rgba(149, 165, 166, 0.2);
+}
+
+/* Password Wrapper */
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper input {
+    padding-right: 45px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #95a5a6;
+    padding: 5px;
+}
+
+.toggle-password:hover {
+    color: #2c3e50;
+}
+
+.help-text {
+    font-size: 0.8rem;
+    color: #95a5a6;
+    margin-top: 5px;
+}

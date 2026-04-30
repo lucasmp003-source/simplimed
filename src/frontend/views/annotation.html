@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anotación Médica - GALENO-IA</title>
+    <!-- BASE_PLACEHOLDER -->
+    <link rel="stylesheet" href="public/css/global_styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="public/css/annotation.css" />
+    <link rel="stylesheet" href="public/css/footer.css?v=robust" />
+</head>
+
+<body class="auth-protected">
+    <!-- Header -->
+    <!-- HEADER_PLACEHOLDER -->
+
+    <main class="account-main">
+        <div class="account-container">
+            <div class="account-header">
+                <h1>Anotación Médica</h1>
+                <p class="account-subtitle">Herramienta de asistencia interna para la expansión y etiquetado de
+                    abreviaciones médicas.</p>
+            </div>
+
+            <div class="account-card" id="annotation-main-card"
+                style="transition: none; transform: none; cursor: default;">
+                <div class="card-header" style="display: flex; justify-content: space-between; align-items: center; border-bottom: none; padding-bottom: 10px;">
+                    <h2>Texto a Anotar</h2>
+                    <span id="queue-status"
+                        style="font-size: 14px; font-weight: normal; color: #666;">Cargando...</span>
+                </div>
+                
+                <div style="padding: 0 20px 10px 20px; text-align: right; border-bottom: 1px solid #eaeaea; margin-bottom: 10px;">
+                    <div style="display: flex; align-items: center; justify-content: space-between; font-size: 14px; color: #555; margin-bottom: 5px;">
+                        <span style="font-weight: 500;">Progreso de Anotación:</span>
+                        <span id="progress-text" style="font-weight: bold; color: #28a745;">-- / --</span>
+                    </div>
+                    <div style="width: 100%; background-color: #e9ecef; border-radius: 6px; overflow: hidden; height: 10px;">
+                        <div id="progress-bar-fill" style="width: 0%; height: 100%; background-color: #28a745; transition: width 0.3s ease;"></div>
+                    </div>
+                </div>
+
+                <div style="padding: 10px 20px 20px 20px;">
+                    <input type="hidden" id="currentFileName" value="">
+                    <input type="hidden" id="currentDocId" value="">
+                    <input type="hidden" id="currentOriginalText" value="">
+
+                    <div id="tokenizedText" class="tokenized-box" style="margin-bottom: 20px;">
+                        Cargando siguiente texto...
+                    </div>
+
+                    <button id="saveNextBtn" class="btn-primary"
+                        style="width:100%; background-color: #28a745; border-color: #28a745;" disabled>
+                        <span class="btn-text">Guardar y Siguiente</span>
+                    </button>
+
+                    <div id="empty-queue-message" style="display: none; text-align: center; padding: 40px 20px;">
+                        <div style="font-size: 48px; margin-bottom: 20px;">🎉</div>
+                        <h3 style="color: #28a745; margin-bottom: 10px;">¡Cola vacía!</h3>
+                        <p style="color: #666;">No hay más textos pendientes por anotar.</p>
+                        <button onclick="fetchNextText()" class="btn-primary"
+                            style="margin-top: 20px; background-color: #6c757d; border-color: #6c757d;">
+                            Comprobar de nuevo
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Removed text expander box as per user request to simplify or only json -->
+
+        </div>
+    </main>
+
+    <!-- MODAL -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2>Seleccionar Significado para "<span id="modalAbbrText" style="font-weight:bold;"></span>"</h2>
+            </div>
+            <div class="modal-body" id="optionsContainer">
+                <!-- Opciones dinámicas -->
+            </div>
+            <div class="modal-footer"
+                style="padding: 15px; display: flex; justify-content: flex-end; gap: 10px; border-top: 1px solid #eee;">
+                <button id="selectIgnoreBtn" class="btn-primary"
+                    style="background-color: #f0ad4e; border-color: #f0ad4e; padding: 10px 20px;">
+                    Ignorar Abreviación
+                </button>
+                <button id="selectContextBtn" class="btn-primary" disabled style="padding: 10px 20px;">
+                    Seleccionar Definición
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER_PLACEHOLDER -->
+
+    <script src="config.js"></script>
+    <script src="public/js/url-helper.js"></script>
+    <script src="public/js/auth.js"></script>
+    <script src="public/js/annotation.js"></script>
+</body>
+
+</html>

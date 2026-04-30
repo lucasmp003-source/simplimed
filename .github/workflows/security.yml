@@ -1,0 +1,50 @@
+name: Security Audit
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    # Ejecutar diariamente a las 2 AM
+    - cron: '0 2 * * *'
+
+jobs:
+  security-audit:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: src/backend/package-lock.json
+
+      - name: Instalar dependencias
+        working-directory: src/backend
+        run: npm ci
+
+      - name: Ejecutar npm audit
+        working-directory: src/backend
+        run: npm audit --audit-level=moderate
+        continue-on-error: false
+
+      - name: Ejecutar tests de seguridad
+        working-directory: src/backend
+        run: npm run test:security
+
+      - name: Generar reporte de auditoría
+        if: failure()
+        working-directory: src/backend
+        run: npm audit --json > audit-report.json
+
+      - name: Subir reporte como artefacto
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: security-audit-report
+          path: src/backend/audit-report.json

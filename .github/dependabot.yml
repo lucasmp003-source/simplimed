@@ -1,0 +1,28 @@
+version: 2
+updates:
+  # Monitorear dependencias de npm en backend
+  - package-ecosystem: "npm"
+    directory: "/src/backend"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 10
+    labels:
+      - "dependencies"
+      - "security"
+    # Solo crear PRs para vulnerabilidades de seguridad y actualizaciones menores
+    versioning-strategy: increase-if-necessary
+
+  # Frontend (si aplica, asumiendo estructura similar)
+  # - package-ecosystem: "npm"
+  #   directory: "/src/frontend"
+  #   schedule:
+  #     interval: "weekly"
+  #   open-pull-requests-limit: 5
+
+  # Monitorear GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"

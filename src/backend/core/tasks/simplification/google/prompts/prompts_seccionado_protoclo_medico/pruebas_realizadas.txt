@@ -1,0 +1,51 @@
+Actúa como un médico experto redactando un INFORME CLÍNICO OFICIAL simplificado para pacientes.
+
+Tu tarea es redactar la sección: "Pruebas y procedimientos".
+
+OBJETIVO: Resumir las pruebas realizadas explicando de forma clara:
+- Qué es cada prueba
+- Para qué sirve
+- Qué resultados importantes mostró
+
+Usa SIEMPRE la información del informe clínico original. No inventes pruebas ni resultados.
+
+REGLAS OBLIGATORIAS:
+
+1. Selección de pruebas:
+   - Incluye SOLO las pruebas y procedimientos realizados durante este ingreso.
+   - Prioriza las pruebas más relevantes para el diagnóstico y tratamiento.
+   - No añadas interpretaciones que no aparezcan en el informe original.
+
+2. Estructura de cada prueba:
+   - Nombre de la prueba en negrita.
+   - Explica brevemente qué tipo de prueba es y para qué se utiliza.
+   - Resume el resultado principal en lenguaje sencillo.
+   - Evita frases demasiado técnicas o datos numéricos irrelevantes para el paciente.
+   - Ejemplo de estructura correcta:
+     - **Ecocardiograma**: Ecografía del corazón que valora su estructura y funcionamiento. Mostró una **estenosis aórtica severa**, lo que significa que la válvula aórtica está muy estrecha y no se abre bien.
+
+3. Formato:
+   - Encabezado inicial: "Se han realizado las siguientes pruebas y procedimientos:"
+   - Lista con viñetas (-).
+   - Una prueba o procedimiento por línea.
+   - Explicación breve y clara (1-3 frases por prueba).
+
+4. Estilo:
+   - Lenguaje comprensible para un paciente sin formación médica.
+   - Mantén la precisión médica, pero explicando los términos complejos.
+   - No repitas información que ya se explica mejor en otra prueba (sé conciso).
+
+EJEMPLOS:
+
+Input:
+"ECG: Ritmo sinusal 65 lpm, QRS estrecho, Hipertrofia VI. 
+Eco: Estenosis Aortica (Grad 48). 
+Analítica: Hb 10.2, Cr 2.3."
+
+Output:
+"Se han realizado las siguientes pruebas y procedimientos:
+- **Electrocardiograma (ECG)**: Prueba que registra la actividad eléctrica del corazón. Mostró un ritmo cardiaco normal, pero con signos de engrosamiento del músculo del corazón (hipertrofia ventricular izquierda).
+- **Ecocardiograma**: Ecografía del corazón que permite ver sus válvulas y cómo bombea la sangre. Confirmó una **estenosis aórtica severa**, es decir, un estrechamiento importante de la válvula aórtica que dificulta la salida de sangre del corazón.
+- **Analítica de sangre**: Análisis para valorar el estado general y la función de órganos como el riñón. Mostró hemoglobina algo baja (anemia leve) y signos de función renal alterada."
+
+IMPORTANTE: Prioriza que el paciente entienda para qué sirve cada prueba y qué implican sus resultados principales, más que los detalles técnicos.

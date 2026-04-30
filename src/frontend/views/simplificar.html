@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GALENO-IA: Simplificación de Informes Cardiológicos</title>
+    <!-- BASE_PLACEHOLDER -->
+    <link rel="stylesheet" href="public/css/global_styles.css" />
+    <link rel="stylesheet" href="public/css/chatbot.css?v=2" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="public/css/tools.css" />
+    <link rel="stylesheet" href="public/css/footer.css?v=robust" />
+</head>
+
+<body class="auth-protected">
+
+
+    <!-- Animated Background -->
+    <div class="background-effects">
+        <div class="gradient-orb"></div>
+        <div class="gradient-orb"></div>
+        <div class="gradient-orb"></div>
+        <div class="grid-pattern"></div>
+    </div>
+
+    <!-- HEADER_PLACEHOLDER -->
+
+    <main class="main-container">
+        <!-- Title with Sparkle Effect -->
+        <div class="hero-title-wrapper" id="hero-title-wrapper">
+            <div class="title-particles" id="title-particles"></div>
+            <h1>Simplificación de Informes de Cardiología</h1>
+        </div>
+        <p class="description">Sube tu informe de alta cardiológica y obtén una versión simplificada en segundos.</p>
+
+        <div class="upload-section">
+            <div class="upload-card" id="upload-row" onclick="document.getElementById('file-input').click();"
+                title="Haz clic para subir tu informe">
+                <div class="card-particles" id="upload-particles"></div>
+                <div class="icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        <polyline points="17 8 12 3 7 8" stroke-linecap="round" stroke-linejoin="round" />
+                        <line x1="12" y1="3" x2="12" y2="15" stroke-linecap="round" />
+                    </svg>
+                </div>
+                <div class="file-info">
+                    <div class="label">Informe de Alta Cardiológica</div>
+                    <div class="status" id="file-status">Arrastra y suelta tu informe aquí o haz clic para seleccionarlo
+                    </div>
+                </div>
+                <div class="check-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <input type="file" id="file-input" accept=".pdf" onchange="handleFileUpload(this)"
+                    title="Selecciona un archivo PDF" hidden />
+            </div>
+        </div>
+
+        <p class="status-message" id="status-message"></p>
+        <p class="loading-message" id="loading-message" style="display: none;">
+            <span class="loader" aria-label="Cargando"></span>
+        </p>
+
+
+    </main>
+
+
+
+
+    <!-- FOOTER_PLACEHOLDER -->
+
+    <script src="config.js"></script>
+    <script src="public/js/chatbot.js"></script>
+    <script src="public/js/url-helper.js"></script>
+    <script src="public/js/simplify.js"></script>
+    <script src="public/js/auth.js"></script>
+
+    <!-- Interactive Sparkle Effects -->
+    <script src="public/js/effects.js"></script>
+</body>
+
+</html>

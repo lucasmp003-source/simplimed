@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Previsualización - GALENO-IA</title>
+  <!-- BASE_PLACEHOLDER -->
+  <link rel="stylesheet" href="public/css/global_styles.css">
+  <link rel="stylesheet" href="public/css/floating-buttons.css">
+  <link rel="stylesheet" href="public/css/chatbot.css?v=2">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="public/css/preview.css">
+  <link rel="stylesheet" href="public/css/footer.css?v=robust">
+</head>
+
+<body class="auth-protected">
+
+  <!-- HEADER_PLACEHOLDER -->
+
+
+
+
+  <!-- Botones flotantes: Editar y Descargar -->
+  <div id="floating-buttons" class="floating-buttons-wrapper">
+    <button id="edit-toggle-btn" class="floating-btn"
+      style="background-color: #f0ad4e; color: white; border: none; padding: 10px 18px; font-size: 14px; font-weight: 500; cursor: pointer; border-radius: 6px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12); transition: all 0.3s ease; opacity: 0.85;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 6px;">
+        <path
+          d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
+      </svg>
+      <span id="edit-toggle-text">Editar</span>
+    </button>
+
+    <button id="download-btn" class="floating-btn" disabled title="Esperando a que concluya la simplificación"
+      style="background-color: #9e9e9e; color: white; border: none; padding: 10px 18px; font-size: 14px; font-weight: 500; cursor: not-allowed; border-radius: 6px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12); transition: all 0.3s ease; opacity: 0.4;">
+      <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" style="margin-right: 6px;">
+        <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
+      </svg>
+      Descargar PDF
+    </button>
+  </div>
+
+  <main class="preview-container">
+    <div class="preview-wrapper">
+      <!-- Panel de previsualización (izquierda) -->
+      <div class="preview-panel">
+        <!-- Contenedor donde se cargarán los canvas para cada página del PDF -->
+        <div id="pdf-canvas-container"></div>
+      </div>
+
+      <!-- Panel de acciones (derecha) -->
+      <div class="actions-panel" style="padding: 0;">
+        <div class="output-area full-height" id="output-area">
+          <div class="output-placeholder full-height" id="output-placeholder">
+            <button id="generate-btn" class="generate-btn">Generar Informe Simplificado</button>
+          </div>
+
+          <div id="output-content" style="display: none;"></div>
+
+          <textarea id="edit-textarea"
+            style="display: none; width: 100%; height: calc(100vh - 150px); padding: 1rem; border: 1px solid #ccc; border-radius: 8px; font-family: 'Courier New', monospace; resize: none; font-size: 14px; line-height: 1.6; box-sizing: border-box;"></textarea>
+
+          <div id="loading-indicator" style="display: none; padding: 20px; text-align: center;">
+            <span class="loader"></span>
+            <p id="loading-message" style="margin-top: 10px; color: #666;">Generando informe simplificado...</p>
+          </div>
+        </div>
+
+        <!-- Widget de Logs Flotante (Abajo a la derecha del panel de acciones) -->
+        <div id="log-widget" class="log-widget" style="display: none;">
+          <div class="log-header" id="log-toggle">
+            <span id="log-status-text">Generando...</span>
+            <span class="toggle-icon">▼</span>
+          </div>
+          <div class="log-body" id="progress-logs">
+            <!-- Logs se inyectan aquí -->
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+
+  <!-- Chatbot Interface injected by chatbot.js -->
+
+  <!-- FOOTER_PLACEHOLDER -->
+
+  <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/markdown/lib/markdown.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+  <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+  <script src="config.js"></script>
+  <script src="public/js/url-helper.js"></script>
+  <script src="public/js/auth.js"></script>
+  <script src="public/js/preview-simplificar.js"></script>
+  <script src="public/js/chatbot.js"></script>
+</body>
+
+</html>

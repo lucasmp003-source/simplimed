@@ -1,0 +1,85 @@
+# --- Dependencies ---
+node_modules/
+
+# --- Sensitive Data (CRITICAL) ---
+# Hardcoded credentials and configurations
+src/backend/smtp-config/smtp.js
+# User credentials and personal information
+src/backend/users.json
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+
+# Clinical & Project Data
+# Directories containing medical records or processed clinical data
+src/data/
+JSON/
+tempUploads/
+src/backend/tempUploads/
+src/backend/core/tasks/generation/google/new_prompts/
+src/backend/core/tasks/generation/google/prompts/
+# Note: Prompts often contain real clinical examples in this project
+
+# --- Config Files (Secrets) ---
+src/backend/core/config/*.yaml
+src/backend/core/config/*.yml
+update_server.sh
+server.sh
+reproduce_issue.py
+scripts/
+test_output.txt
+src/backend/test_output.txt
+
+# --- Logs & Runtime ---
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Process IDs and runtime state files
+*.pid
+.simplimed.mode
+.simplimed_api.pid
+.simplimed_core.pid
+.simplimed_core_generation.pid
+.simplimed_core_simplification.pid
+
+# --- Testing & Coverage ---
+coverage/
+src/backend/coverage/
+.husky/
+.eslintcache
+
+# --- IDE & System ---
+.vscode/
+.idea/
+.VSCodeCounter/
+.DS_Store
+Thumbs.db
+*.sublime-project
+*.sublime-workspace
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+*.prototxt
+*.pickle
+*.h5

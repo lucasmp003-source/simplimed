@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mi Cuenta - GALENO-IA</title>
+    <!-- BASE_PLACEHOLDER -->
+    <link rel="stylesheet" href="public/css/global_styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="public/css/footer.css?v=robust" />
+</head>
+
+
+<body class="auth-protected">
+    <!-- Header -->
+    <!-- HEADER_PLACEHOLDER -->
+
+    <!-- Contenedor Principal -->
+    <main class="account-main">
+        <div class="account-container">
+            <!-- Cabecera de la cuenta -->
+            <div class="account-header">
+                <h1>Mi Cuenta</h1>
+                <p class="account-subtitle">Gestiona tu información personal y seguridad.</p>
+            </div>
+
+            <!-- Información del Usuario -->
+            <div class="account-card">
+                <div class="card-header">
+                    <h2>Información Personal</h2>
+                </div>
+
+                <form id="profile-form" class="account-form">
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" readonly disabled class="readonly-input" />
+                        <small class="help-text">El correo no se puede modificar</small>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">Nombre</label>
+                            <input type="text" id="firstName" name="firstName" required placeholder="Tu nombre" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lastName">Apellidos</label>
+                            <input type="text" id="lastName" name="lastName" required placeholder="Tus apellidos" />
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="role">Rol</label>
+                            <input type="text" id="role" name="role" readonly disabled class="readonly-input" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="institution">Institución</label>
+                            <input type="text" id="institution" name="institution" readonly disabled
+                                class="readonly-input" />
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary" id="btn-update-profile">
+                            <span class="btn-text">Guardar Cambios</span>
+                            <span class="btn-loader" style="display: none;"></span>
+                        </button>
+                    </div>
+
+                    <div class="success-message" id="profile-success" style="display: none;">
+                        <span class="success-icon">✓</span>
+                        <span id="profile-success-text"></span>
+                    </div>
+
+                    <div class="error-message" id="profile-error" style="display: none;">
+                        <span class="error-icon">⚠</span>
+                        <span id="profile-error-text"></span>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Cambiar Contraseña -->
+            <div class="account-card">
+                <div class="card-header">
+                    <h2>Cambiar Contraseña</h2>
+                </div>
+
+                <form id="password-form" class="account-form">
+                    <div class="form-group">
+                        <label for="currentPassword">Contraseña Actual</label>
+                        <div class="password-wrapper">
+                            <input type="password" id="currentPassword" name="currentPassword" required
+                                placeholder="Tu contraseña actual" autocomplete="current-password" />
+                            <button type="button" class="toggle-password" data-target="currentPassword"
+                                aria-label="Mostrar contraseña">
+                                <!-- Icono OJO (Mostrar) -->
+                                <svg class="eye-show" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                                <!-- Icono OJO TACHADO (Ocultar) -->
+                                <svg class="eye-hide" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" style="display: none;">
+                                    <path
+                                        d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24">
+                                    </path>
+                                    <line x1="1" y1="1" x2="23" y2="23"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="newPassword">Nueva Contraseña</label>
+                        <div class="password-wrapper">
+                            <input type="password" id="newPassword" name="newPassword" required minlength="8"
+                                placeholder="Mínimo 8 caracteres, número y símbolo" autocomplete="new-password" />
+                            <button type="button" class="toggle-password" data-target="newPassword"
+                                aria-label="Mostrar contraseña">
+                                <!-- Icono OJO (Mostrar) -->
+                                <svg class="eye-show" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                                <!-- Icono OJO TACHADO (Ocultar) -->
+                                <svg class="eye-hide" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" style="display: none;">
+                                    <path
+                                        d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24">
+                                    </path>
+                                    <line x1="1" y1="1" x2="23" y2="23"></line>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirmar Nueva Contraseña</label>
+                        <div class="password-wrapper">
+                            <input type="password" id="confirmPassword" name="confirmPassword" required minlength="8"
+                                placeholder="Repite la contraseña" autocomplete="new-password" />
+                            <button type="button" class="toggle-password" data-target="confirmPassword"
+                                aria-label="Mostrar contraseña">
+                                <!-- Icono OJO (Mostrar) -->
+                                <svg class="eye-show" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg>
+                                <!-- Icono OJO TACHADO (Ocultar) -->
+                                <svg class="eye-hide" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" style="display: none;">
+                                    <path
+                                        d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24">
+                                    </path>
+                                    <line x1="1" y1="1" x2="23" y2="23"></line>
+                                </svg>
+                            </button>
+                        </div>
+                        <small class="help-text">La contraseña debe tener al menos 8 caracteres, un número y un
+                            símbolo</small>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary btn-password" id="btn-change-password">
+                            <span class="btn-text">Cambiar Contraseña</span>
+                            <span class="btn-loader" style="display: none;"></span>
+                        </button>
+                    </div>
+
+                    <div class="success-message" id="password-success" style="display: none;">
+                        <span class="success-icon">✓</span>
+                        <span id="password-success-text"></span>
+                    </div>
+
+                    <div class="error-message" id="password-error" style="display: none;">
+                        <span class="error-icon">⚠</span>
+                        <span id="password-error-text"></span>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Panel de Anotación (Enlace) -->
+        <div class="account-card" id="annotation-card" style="display: none;">
+            <div class="card-header">
+                <h2>Herramienta de Anotación</h2>
+            </div>
+            <div style="padding: 20px; text-align: center;">
+                <p style="margin-bottom: 20px; color: #666;">Accede a la herramienta interna para preprocesar texto y
+                    etiquetar abreviaciones médicas.</p>
+                <a href="#" onclick="window.urlHelper.navigateTo('/annotation'); return false;" class="btn-primary"
+                    style="text-decoration: none; display: inline-block; max-width: 300px; background-color: #17a2b8;">
+                    Abrir Anotador
+                </a>
+            </div>
+        </div>
+
+        <!-- Dashboard de Métricas (Enlace) -->
+        <div class="account-card" id="metrics-card" style="display: none;">
+            <div class="card-header">
+                <h2>Dashboard de Métricas</h2>
+            </div>
+            <div style="padding: 20px; text-align: center;">
+                <p style="margin-bottom: 20px; color: #666;">Accede al panel avanzado de métricas y estadísticas.
+                </p>
+                <a href="#" onclick="window.urlHelper.navigateTo('/metrics/index.html'); return false;"
+                    class="btn-primary" style="text-decoration: none; display: inline-block; max-width: 300px;">
+                    Ver Métricas
+                </a>
+            </div>
+        </div>
+
+        <!-- Panel de Administración (Enlace) -->
+        <div class="account-card" id="admin-card" style="display: none;">
+            <div class="card-header">
+                <h2>Panel de Administración</h2>
+            </div>
+            <div style="padding: 20px; text-align: center;">
+                <p style="margin-bottom: 20px; color: #666;">Gestión de usuarios y permisos del sistema.</p>
+                <a href="#" onclick="window.urlHelper.navigateTo('/admin'); return false;" class="btn-primary"
+                    style="text-decoration: none; display: inline-block; max-width: 300px; background-color: #2c3e50;">
+                    Administrar Usuarios
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER_PLACEHOLDER -->
+
+    <script src="config.js"></script>
+    <script src="public/js/url-helper.js"></script>
+    <script src="public/js/auth.js"></script>
+    <script src="public/js/account.js"></script>
+</body>
+
+</html>

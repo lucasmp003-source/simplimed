@@ -1,0 +1,141 @@
+/* annotation.css */
+
+.tokenized-box {
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    min-height: 100px;
+    background: #f8f9fa;
+    font-size: 16px;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    font-family: inherit;
+}
+
+.abbreviation { 
+    background: #fff3cd;
+    padding: 1px 3px;
+    border-radius: 3px;
+    cursor: pointer;
+    border-bottom: 2px dashed #ffc107;
+    transition: all 0.3s;
+    color: #333;
+    display: inline;
+}
+
+.abbreviation:hover {
+    background: #ffe69c;
+    border-bottom-color: #ff9800;
+}
+
+.abbreviation.pending {
+    background: #ffe69c;
+    border-bottom: 2px solid #ff9800;
+    color: #cc0000;
+}
+
+.abbreviation.selected {
+    background: #d4edda;
+    border-bottom: 2px solid #28a745;
+    color: #155724;
+}
+
+.abbreviation.auto-selected {
+    background: #cce5ff;
+    border-bottom: 2px solid #004085;
+    color: #004085;
+}
+
+.abbreviation.auto-selected:hover {
+    background: #b8daff;
+    border-bottom-color: #002752;
+}
+
+.abbreviation.ignored {
+    background: #e0e0e0;
+    border-bottom: 2px solid #999;
+    text-decoration: line-through;
+    color: #666;
+    font-weight: 400;
+}
+
+/* Modal specific styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    animation: fadeIn 0.3s;
+    justify-content: center;
+    align-items: center; 
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background: white;
+    margin: 20px; 
+    padding: 0;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 620px;
+    box-shadow: 0 14px 40px rgba(0,0,0,0.25);
+    display: flex;
+    flex-direction: column;
+    max-height: 90vh;
+    position: relative;
+    overflow: hidden; 
+}
+
+.modal-header {
+    background: #2c3e50;
+    color: white;
+    padding: 20px;
+}
+
+.modal-body {
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.option {
+    padding: 15px;
+    margin-bottom: 10px;
+    background: #f8f9fa;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.option:hover {
+    background: #e9ecef;
+    border-color: #457b9d;
+}
+
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    opacity: 0.8;
+}
+
+.alert-info {
+    background: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+    padding: 12px 20px;
+    border-radius: 8px;
+}

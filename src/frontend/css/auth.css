@@ -1,0 +1,559 @@
+/* ===== FONDO ANIMADO CON RED NEURONAL ===== */
+.neural-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+    overflow: hidden;
+    z-index: -1;
+}
+
+.neural-network {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.node {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: rgba(217, 83, 79, 0.8);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(217, 83, 79, 0.5);
+    animation: pulse 3s ease-in-out infinite;
+}
+
+.connection {
+    position: absolute;
+    height: 1px;
+    background: linear-gradient(90deg,
+            rgba(74, 144, 226, 0) 0%,
+            rgba(74, 144, 226, 0.3) 50%,
+            rgba(74, 144, 226, 0) 100%);
+    transform-origin: left center;
+    animation: flow 4s linear infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 1;
+    }
+}
+
+@keyframes flow {
+    0% {
+        opacity: 0.2;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 0.2;
+    }
+}
+
+/* ===== EFECTO DE LATIDO CARDÍACO ===== */
+.heartbeat-line {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.15;
+}
+
+.ecg-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: rgba(217, 83, 79, 0.3);
+}
+
+.ecg-pulse {
+    position: absolute;
+    top: 50%;
+    left: -100px;
+    width: 200px;
+    height: 100px;
+    transform: translateY(-50%);
+    animation: heartbeat 3s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        left: -200px;
+    }
+    50% {
+        left: 100%;
+    }
+}
+
+/* ===== PARTÍCULAS FLOTANTES ===== */
+.particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    animation: float 15s infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    33% {
+        transform: translate(100px, -100px) rotate(120deg);
+    }
+    66% {
+        transform: translate(-50px, -200px) rotate(240deg);
+    }
+}
+
+/* ===== TARJETAS ===== */
+.simple-login-card,
+.login-card,
+.forgot-password-card,
+.reset-password-card,
+.registration-card {
+    position: relative;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 2.5rem;
+    width: 90%;
+    margin: auto;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.login-card,
+.forgot-password-card {
+    max-width: 400px;
+}
+
+.registration-card {
+    max-width: 480px;
+}
+
+.simple-login-card.show,
+.login-card.show,
+.forgot-password-card.show,
+.reset-password-card.show,
+.registration-card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== ENCABEZADOS ===== */
+.simple-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.simple-header h1 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin: 0 0 0.5rem 0;
+}
+
+.simple-header .ia-suffix {
+    color: #d9534f;
+}
+
+.simple-header p {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.simple-header .description {
+    color: #95a5a6;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    line-height: 1.4;
+}
+
+/* ===== INFORMACIÓN DE INVITACIÓN ===== */
+.invitation-info {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.invitation-info .label {
+    font-size: 0.75rem;
+    color: #6c757d;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.invitation-info .value {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-top: 0.2rem;
+}
+
+.invitation-info .email-value {
+    color: #d9534f;
+}
+
+/* ===== FORMULARIOS ===== */
+.simple-form {
+    text-align: left;
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    color: #2c3e50;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+}
+
+.simple-form input {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+    box-sizing: border-box;
+}
+
+.simple-form input:focus {
+    outline: none;
+    border-color: #d9534f;
+}
+
+.simple-form input:read-only {
+    background-color: #f8f9fa;
+    color: #6c757d;
+}
+
+/* ===== ESTILOS DE CONTRASEÑA (MEJORADOS Y MÁS SUTILES) ===== */
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-wrapper input {
+    width: 100%;
+    padding-right: 45px;
+    margin-bottom: 0;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #95a5a6;
+    font-size: 1.1rem;
+    transition: color 0.2s ease, opacity 0.2s ease;
+    opacity: 0.6;
+    z-index: 10;
+}
+
+.toggle-password:hover {
+    color: #7f8c8d;
+    opacity: 1;
+}
+
+.toggle-password:focus {
+    outline: none;
+    color: #2c3e50;
+    opacity: 1;
+}
+
+.toggle-password:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+/* Iconos del toggle de contraseña */
+.toggle-password .eye-icon,
+.toggle-password .eye-slash-icon {
+    display: none;
+    width: 18px;
+    height: 18px;
+}
+
+.toggle-password .eye-icon.active,
+.toggle-password .eye-slash-icon.active {
+    display: block;
+}
+
+/* Reset password card específico */
+.reset-password-card .password-wrapper input {
+    padding-right: 45px;
+    margin-bottom: 0;
+}
+
+.password-requirements {
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.password-requirements p {
+    margin: 0;
+    color: #95a5a6;
+    font-size: 0.85rem;
+}
+
+/* ===== BOTONES ===== */
+.simple-form button[type="submit"] {
+    width: 100%;
+    padding: 0.9rem;
+    background: linear-gradient(135deg, #d9534f 0%, #c9302c 100%);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.simple-form button[type="submit"]:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(217, 83, 79, 0.3);
+}
+
+.simple-form button[type="submit"]:active {
+    transform: translateY(0);
+}
+
+.simple-form button[type="submit"]:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.simple-form button[type="submit"].success {
+    background: linear-gradient(135deg, #5cb85c 0%, #4cae4c 100%);
+}
+
+.registration-card .simple-form button[type="submit"] {
+    width: auto;
+    padding: 0.9rem 2rem;
+    margin-top: 0.5rem;
+}
+
+/* ===== PIE DE PÁGINA Y MENSAJES ===== */
+.simple-footer {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+}
+
+.simple-footer a {
+    color: #d9534f;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.simple-footer a:hover {
+    text-decoration: underline;
+    color: #c9302c;
+}
+
+.error-message {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 0.75rem;
+    border-radius: 6px;
+    margin-top: 1rem;
+    display: none;
+    text-align: center;
+}
+
+.error-message[style*="display: flex"],
+.error-message[style*="display: block"] {
+    display: block !important;
+}
+
+.error-message.shake {
+    animation: shake 0.5s;
+}
+
+.success-message {
+    background: #d4edda;
+    color: #155724;
+    padding: 0.75rem;
+    border-radius: 6px;
+    margin-top: 1rem;
+    display: none;
+    text-align: center;
+}
+
+.success-message[style*="display: flex"],
+.success-message[style*="display: block"] {
+    display: block !important;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-10px);
+    }
+    75% {
+        transform: translateX(10px);
+    }
+}
+
+/* ===== LOADERS ===== */
+.btn-loader {
+    display: inline-block;
+}
+
+.btn-loader::after {
+    content: "";
+    animation: spin 1s linear infinite;
+}
+
+.loading-state {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.spinner {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(217, 83, 79, 0.3);
+    border-radius: 50%;
+    border-top-color: #d9534f;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-state p {
+    margin-top: 1rem;
+    color: #7f8c8d;
+}
+
+/* ===== ESTADO DEL TOKEN ===== */
+.token-status {
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.token-error {
+    text-align: center;
+}
+
+.error-icon-large {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.token-error h3 {
+    color: #721c24;
+    margin: 0.5rem 0;
+}
+
+.token-error p {
+    color: #7f8c8d;
+    margin: 1rem 0 1.5rem 0;
+}
+
+.token-error a {
+    display: inline-block;
+    padding: 0.9rem 1.5rem;
+    background: linear-gradient(135deg, #d9534f 0%, #c9302c 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.token-error a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(217, 83, 79, 0.3);
+}
+
+/* ===== INPUT DE EMAIL READONLY ===== */
+.email-value-input {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.9);
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    cursor: default;
+}
+
+.email-value-input:focus {
+    outline: none;
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .simple-login-card,
+    .login-card,
+    .forgot-password-card,
+    .reset-password-card,
+    .registration-card {
+        padding: 1.5rem;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .simple-header h1 {
+        font-size: 1.5rem;
+    }
+}

@@ -1,0 +1,42 @@
+A partir del siguiente texto médico, extrae **absolutamente todos** los términos que pertenezcan a las siguientes categorías. **Si hay alguna duda sobre si un término debe ser incluido, agrégalo en la categoría más probable en lugar de omitirlo.**  
+
+1. **Formas abreviadas** → Incluye **acrónimos, siglas, abreviaturas y unidades de medida** en un solo grupo.  
+   - **Acrónimos**: Palabras formadas por iniciales que se pronuncian como una sola palabra (Ej: "EPOC", "SIDA").  
+   - **Siglas**: Conjuntos de letras iniciales que se pronuncian letra por letra (Ej: "ECG", "TA").  
+   - **Abreviaturas**: Formas reducidas de palabras con o sin punto (Ej: "Adm." para "Administración", "Dr." para "Doctor", "Rx").  
+   - **Unidades de medida**: Símbolos usados en parámetros médicos y científicos (Ej: "mmHg", "BPM", "cm²", "mg/dL").  
+
+2. **Símbolos médicos** → Términos en mayúsculas que representan una entidad médica específica, pero que no son acrónimos, siglas ni abreviaturas. Se utilizan como **denominaciones gráficas** en electrocardiogramas, análisis clínicos y otros estudios médicos. (Ej: "QRS", "ST", "Na", "K", "Cl", "pH").  
+
+📌 **Reglas obligatorias (NO OMITAS TÉRMINOS):**  
+- **Incluir todos los términos** que puedan pertenecer a estas categorías.  
+- **Si hay duda**, agrega el término en la categoría más probable en lugar de omitirlo.  
+- **Si un término puede pertenecer a varias categorías de "formas_abreviadas", inclúyelo en esta única lista.**  
+- **Mantén los términos exactamente como aparecen en el texto**, sin cambiar mayúsculas ni minúsculas.  
+- **Devuelve la respuesta en formato JSON válido** con solo dos claves:  
+  - `"formas_abreviadas"` (para acrónimos, siglas, abreviaturas y unidades de medida).  
+  - `"simbolos_medicos"` (para símbolos médicos específicos).  
+- **Si una categoría no tiene términos, devuelve una lista vacía (`[]`).**  
+
+---
+
+### **Ejemplo:**  
+
+Texto de entrada:  
+
+> ECG con dolor: RS, QRS estrecho, HBAI, desenso del ST 1 mm en V2, I,aVL, elevación del ST de 1,5 mm en cara inferior  
+> Analítica planta:  
+> Ecocardioescopia: VI no dilatado con función conservada. Hipoquinesia inferior lateral. VD ligeramente dilatado con función  
+> conservada. No valvulopatías. No derrame pericárdico.  
+> Analítica: Hb 15,5, creatinina 0,8, mdrd ›90, CT 269, LDL 187, TGL 208, BT 12, BD 0,35, GPT 46, GOT 27, GGT normal, potasio  
+> 4,3, IST 31%, ferritina 143, pcr normal, TSH normal, ntprobnp 439, A1c 8,2%  
+> ECG planta al alta: RS, QRS estrecho, Q y T negativas en III, aVF.  
+> Se realizó icp.  
+
+Salida JSON:  
+
+
+{
+  "formas_abreviadas": ["ICP", "ECG", "RS", "HBAI", "VI", "VD", "Hb", "CT", "LDL", "TGL", "BT", "BD", "GPT", "GOT", "GGT", "IST", "TSH", "A1c", "mm", "mmHg", "pcr", "ntprobnp"],
+  "simbolos_medicos": ["QRS", "ST", "aVL", "III", "aVF", "V2"]
+}

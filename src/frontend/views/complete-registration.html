@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Completar Registro - GALENO-IA</title>
+    <!-- BASE_PLACEHOLDER -->
+    <link rel="stylesheet" href="public/css/global_styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="public/css/auth.css" />
+</head>
+
+<body>
+    <!-- Fondo animado -->
+    <div class="neural-background">
+        <canvas id="neuralCanvas" class="neural-network"></canvas>
+
+        <!-- Partículas flotantes -->
+        <div class="particle" style="top: 20%; left: 10%; animation-delay: 0s;"></div>
+        <div class="particle" style="top: 40%; left: 80%; animation-delay: 2s;"></div>
+        <div class="particle" style="top: 60%; left: 30%; animation-delay: 4s;"></div>
+        <div class="particle" style="top: 80%; left: 70%; animation-delay: 6s;"></div>
+        <div class="particle" style="top: 30%; left: 50%; animation-delay: 1s;"></div>
+        <div class="particle" style="top: 70%; left: 20%; animation-delay: 3s;"></div>
+        <div class="particle" style="top: 50%; left: 90%; animation-delay: 5s;"></div>
+    </div>
+
+    <!-- Tarjeta de registro -->
+    <div
+        style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+        <div class="registration-card">
+            <div class="simple-header">
+                <h1>GALENO<span class="ia-suffix">-IA</span></h1>
+                <p>Completar Registro</p>
+                <p class="description">Bienvenido/a. Completa tus datos para activar tu cuenta.</p>
+            </div>
+
+            <!-- Validando token... -->
+            <div id="loading-state" class="loading-state">
+                <div class="spinner"></div>
+                <p>Verificando invitación...</p>
+            </div>
+
+            <!-- Token inválido o expirado -->
+            <div id="invalid-token" class="token-status" style="display: none;">
+                <div class="token-error">
+                    <span class="error-icon-large">⚠️</span>
+                    <h3>Invitación Inválida o Expirada</h3>
+                    <p id="invalid-token-message">El enlace de invitación no es válido o ha expirado.</p>
+                    <a href="login">Ir a Iniciar Sesión</a>
+                </div>
+            </div>
+
+            <!-- Formulario de registro -->
+            <form id="registration-form" class="simple-form" autocomplete="off" style="display: none;">
+                <!-- Info de la invitación -->
+                <div class="invitation-info">
+                    <div style="margin-bottom: 0.5rem;">
+                        <div class="label">Email</div>
+                        <div class="value email-value" id="display-email">-</div>
+                    </div>
+                    <div style="display: flex; gap: 2rem;">
+                        <div>
+                            <div class="label">Rol</div>
+                            <div class="value" id="display-role">-</div>
+                        </div>
+                        <div>
+                            <div class="label">Institución</div>
+                            <div class="value" id="display-institution">-</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">Nombre</label>
+                        <input type="text" id="firstName" name="firstName" placeholder="Tu nombre" required
+                            autocomplete="given-name" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName">Apellidos</label>
+                        <input type="text" id="lastName" name="lastName" placeholder="Tus apellidos" required
+                            autocomplete="family-name" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="password" name="password" placeholder="Mínimo 8 caracteres" required
+                            minlength="8" autocomplete="new-password" />
+                        <button type="button" class="toggle-password" data-target="password"
+                            aria-label="Mostrar contraseña">
+                            <!-- Icono OJO (Mostrar) -->
+                            <svg class="eye-show" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                            <!-- Icono OJO TACHADO (Ocultar) -->
+                            <svg class="eye-hide" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                style="display: none;">
+                                <path
+                                    d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24">
+                                </path>
+                                <line x1="1" y1="1" x2="23" y2="23"></line>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirm-password">Confirmar Contraseña</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="confirm-password" name="confirm-password"
+                            placeholder="Repite la contraseña" required minlength="8" autocomplete="new-password" />
+                        <button type="button" class="toggle-password" data-target="confirm-password"
+                            aria-label="Mostrar contraseña">
+                            <!-- Icono OJO (Mostrar) -->
+                            <svg class="eye-show" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                            <!-- Icono OJO TACHADO (Ocultar) -->
+                            <svg class="eye-hide" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                style="display: none;">
+                                <path
+                                    d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24">
+                                </path>
+                                <line x1="1" y1="1" x2="23" y2="23"></line>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="password-requirements">
+                    <p><small>La contraseña debe tener al menos 8 caracteres, un número y un símbolo</small></p>
+                </div>
+
+                <div style="text-align: right;">
+                    <button type="submit" id="btn-submit" class="btn-primary">
+                        <span>Crear Cuenta</span>
+                        <span class="btn-loader" style="display: none;"></span>
+                    </button>
+                </div>
+
+                <div class="success-message" id="success-message" style="display: none;">
+                    <span id="success-text"></span>
+                </div>
+
+                <div class="error-message" id="error-message" style="display: none;">
+                    <span id="error-text"></span>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="public/js/neural-network.js"></script>
+    <script src="public/js/complete-registration.js"></script>
+    <script src="config.js"></script>
+    <script src="public/js/url-helper.js"></script>
+</body>
+
+</html>

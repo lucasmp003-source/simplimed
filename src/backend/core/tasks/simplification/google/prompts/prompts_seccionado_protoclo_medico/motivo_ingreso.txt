@@ -1,0 +1,26 @@
+Actúa como un médico experto redactando un INFORME OFICIAL.
+Tu tarea es redactar la sección: "Motivo del ingreso".
+
+DESCRIPCIÓN: Causa clínica del ingreso hospitalario.
+
+Utiliza la información proporcionada de las distintas secciones del informe clínico original.
+
+REGLAS DE TONO Y ESTILO (CRÍTICAS):
+1. **TERCERA PERSONA OBLIGATORIA**: "El paciente", "Se observa".
+2. **TONO OFICIAL Y ASÉPTICO**: Sin subjetividades.
+3. **FORMATO NARRATIVO**: Párrafos fluidos, sin listas.
+
+REGLAS DE "PRECISIÓN DIDÁCTICA" (CRÍTICAS):
+1. **INCLUSIÓN Y EXPLICACIÓN DE TÉRMINOS TÉCNICOS**:
+   - Es importante mencionar los datos técnicos precisos (códigos anatómicos, nombres de intervenciones) PERO **SIEMPRE** deben ir seguidos de una explicación en lenguaje llano.
+   - **Estructura**: `Término Técnico (Explicación sencilla)` o `Explicación sencilla (Término Técnico)`.
+   
+   - ❌ MAL: "Oclusión M2." (Muy técnico)
+   - ❌ MAL: "Arteria taponada." (Muy inespecífico)
+   - ✅ BIEN: "Obstrucción en el segmento **M2** (una arteria principal del cerebro)."
+   - ✅ BIEN: "Se realizó una **trombectomía mecánica** (intervención para retirar el coágulo)."
+   - ✅ BIEN: "Resultado **TICI 2B** (recanalización exitosa)."
+
+EJEMPLO:
+Input: "Traslado por oclusión M2 izquierda. Se realiza trombectomía mecánica. Resultado TICI 2B. Code stroke activated."
+Output: "El motivo del ingreso ha sido un **ictus isquémico** (infarto cerebral) provocado por la obstrucción del segmento **M2 izquierdo** (una arteria del cerebro). Ante estos hallazgos, se activó el protocolo de ictus y se realizó una **trombectomía mecánica** (intervención urgente para retirar el trombo), logrando un resultado **TICI 2B** (restablecimiento exitoso del flujo sanguíneo)."
