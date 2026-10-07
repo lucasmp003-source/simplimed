@@ -6,19 +6,6 @@
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 ![Language](https://img.shields.io/badge/language-Python%20%7C%20Node.js-yellow)
 
-## 📋 Descripción del Proyecto
-
-**SimpliMED** es el **subproyecto de simplificación de informes médicos** desarrollado como parte del **Trabajo de Fin de Grado (TFG) de Lucas Molino Piñat**, enmarcado dentro del proyecto de investigación **GALENO-IA** de la Universidad de Jaén.
-
-### 🏛️ Contexto: Proyecto GALENO-IA
-
-**GALENO-IA** (*Generación Automática de Lenguaje Claro para Obtención de Informes de Alta*) es un proyecto de investigación concedido a la **Universidad de Jaén** y al **Hospital Universitario de Jaén**, dirigido por las investigadoras principales **María Teresa Martín Valdivia** y **Manuel Carlos Díaz Galiano**.
-
-#### Objetivo General de GALENO-IA
-Desarrollar un sistema completo de **generación y simplificación automática de informes de alta hospitalaria en cardiología**, que incluye:
-1. **Generación automática** de informes de alta a partir de anamnesis y hojas de evolución
-2. **Simplificación automática** de informes médicos para pacientes (SimpliMED)
-
 ### 🎯 Enfoque de SimpliMED
 
 Este TFG se centra específicamente en el **segundo componente**: la **simplificación automática de informes de alta médicos**, desarrollando un sistema que traduce el lenguaje clínico técnico a un formato comprensible para pacientes y usuarios no especializados, preservando la precisión médica.
