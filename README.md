@@ -3,7 +3,7 @@
 ![GALENO-IA](https://img.shields.io/badge/Proyecto-GALENO--IA-blue)
 ![SimpliMED](https://img.shields.io/badge/Subproyecto-SimpliMED-green)
 ![Version](https://img.shields.io/badge/version-1.0.0-brightgreen)
-![License](https://img.shields.io/badge/license-Academic%20Use-orange)
+[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 ![Language](https://img.shields.io/badge/language-Python%20%7C%20Node.js-yellow)
 
 ## 📋 Descripción del Proyecto
