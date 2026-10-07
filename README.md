@@ -12,20 +12,7 @@ Este TFG se centra específicamente en el **segundo componente**: la **simplific
 
 > ⚠️ **Nota Importante**: SimpliMED es un prototipo de investigación con carácter **estrictamente académico y demostrativo**. No está destinado para uso clínico real.
 
-## 🔬 Equipos de Investigación
 
-### **Grupo SINAI (Universidad de Jaén)**
-- **Especialización**: Procesamiento de Lenguaje Natural y Aprendizaje Automático
-- **Experiencia**: Más de 25 años en investigación
-- **Infraestructura**: CEATIC con clusters de alto rendimiento y GPUs A100/V100
-
-### **Grupo ReCaH (Hospital Universitario de Jaén)**
-- **Especialización**: Cardiología clínica e investigación médica
-- **Colaboración**: Validación médica y supervisión clínica
-
-### **Investigadores Participantes**
-- **Lucas Molino Piñat**: Desarrollador principal del subproyecto SimpliMED
-- **Equipo multidisciplinar**: Informáticos, médicos cardiólogos y personal técnico
 
 ## 🎯 Objetivos
 
@@ -42,7 +29,7 @@ Desarrollar y validar un sistema de **simplificación automática de informes de
 
 ## 🧪 Hipótesis de Investigación
 
-### Hipótesis Principal de GALENO-IA
+### Hipótesis Principal
 La implementación de LLMs y técnicas de simplificación **reducirá significativamente el tiempo de redacción** de informes y permitirá generar **versiones claras y comprensibles para los pacientes**.
 
 ### Hipótesis Específicas de SimpliMED
